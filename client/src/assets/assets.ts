@@ -126,7 +126,7 @@ export const dummyThumbnails = [
         _id: "6943e2220611d25b40e529b3",
         userId: "6942b3bd2a93a220baa331b3",
         title: "Make Burger in 30 min",
-        style: "Photorealistic",
+        style: "Photo-Centric",
         aspect_ratio: "1:1",
         color_scheme: "vibrant",
         text_overlay: true,

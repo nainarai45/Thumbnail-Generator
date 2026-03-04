@@ -39,16 +39,16 @@ export default function Footer() {
             >
                 <p className="max-w-60">Making every customer feel valued—no matter the size of your audience.</p>
                 <div className="flex items-center gap-4 mt-3">
-                    <a href="https://dribbble.com/prebuiltui" target="_blank" rel="noreferrer">
+                    <a href="https://dribbble.com/prebuiltui" target="_blank" rel="noopener noreferrer" title="Visit our Dribbble">
                         <DribbbleIcon className="size-5 hover:text-pink-500" />
                     </a>
-                    <a href="https://www.linkedin.com/company/prebuiltui" target="_blank" rel="noreferrer">
+                    <a href="https://www.linkedin.com/company/prebuiltui" target="_blank" rel="noopener noreferrer" title="Visit our LinkedIn">
                         <LinkedinIcon className="size-5 hover:text-pink-500" />
                     </a>
-                    <a href="https://x.com/prebuiltui" target="_blank" rel="noreferrer">
+                    <a href="https://x.com/prebuiltui" target="_blank" rel="noopener noreferrer" title="Visit our Twitter">
                         <TwitterIcon className="size-5 hover:text-pink-500" />
                     </a>
-                    <a href="https://www.youtube.com/@prebuiltui" target="_blank" rel="noreferrer">
+                    <a href="https://www.youtube.com/@prebuiltui" target="_blank" rel="noopener noreferrer" title="Visit our YouTube">
                         <YoutubeIcon className="size-6 hover:text-pink-500" />
                     </a>
                 </div>
