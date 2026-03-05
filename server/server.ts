@@ -31,7 +31,12 @@ app.use(session({
     secret: process.env.SESSION_SECRET as string,
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge: 7 * 24 * 60 * 60 * 1000}, // cookie valid for 7 days
+    cookie: {maxAge: 7 * 24 * 60 * 60 * 1000,
+      httpOnly : true,
+      secure: ProcessingInstruction.env.Node_ENV === 'production',
+      sameSite: 'none',
+      path : '/'
+    }, // cookie valid for 7 days
     store : MongoStore.create({
         mongoUrl: process.env.MONGODB_URI as string,
         collectionName: 'sessions'
