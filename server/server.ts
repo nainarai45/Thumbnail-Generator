@@ -33,7 +33,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly : true,
-      secure: ProcessingInstruction.env.Node_ENV === 'production',
+      secure: process.env.NODE_ENV === 'production',
       sameSite: 'none',
       path : '/'
     }, // cookie valid for 7 days
