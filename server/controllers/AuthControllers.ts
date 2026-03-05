@@ -92,6 +92,7 @@ export const logoutUser = (req: Request, res: Response) => {
             console.log(error);
             return res.status(500).json({message: error.message})
         }
+        res.clearCookie("connect.sid");
         return res.json({message: 'User logged out successfully'})
     })
 }

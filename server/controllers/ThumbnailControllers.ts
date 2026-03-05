@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import Thumbnail from "../models/Thumbnail.js";
 import { GenerateContentConfig, HarmCategory, HarmBlockThreshold } from "@google/genai";
 import ai from "../configs/ai.js";
-import path from "path/win32";
+import path from "path";
 import fs from "fs";
 import {v2 as cloudinary} from "cloudinary";
 
@@ -28,6 +28,9 @@ const colorSchemeDescriptions = {
 
 export const generateThumbnail = async (req: Request, res : Response ) => {
     try {
+        if (!req.session.userId) {
+            return res.status(401).json({ message: "Unauthorized" });
+        }
         const {userId} = req.session;
         const {
             title,

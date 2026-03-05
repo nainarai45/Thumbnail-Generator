@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import type { IUser } from "../assets/assets";
 import api from "../configs/api";
 import toast from "react-hot-toast";
-
+import { data } from "framer-motion/client";
 
 interface AuthContextProps {
     isLoggedIn: boolean;
@@ -57,21 +57,36 @@ export const AuthProvider = ({children} : {children: React.ReactNode})=>{
             console.error(err);
         }
     }
-    const logout = async ()=>{
+    // const logout = async ()=>{
 
-        try{
-            const {data} = await api.post("/api/auth/logout");
+    //     try{
+    //         const {data} = await api.post("/api/auth/logout");
 
-            setUser(null);
-            setIsLoggedIn(false);
+    //         setUser(null);
+    //         setIsLoggedIn(false);
             
-            toast.success(data.message || "Logged out successfully!");
-        }
-        catch(err){
-            console.error(err);
-        }
+    //         toast.success(data.message || "Logged out successfully!");
+    //     }
+    //     catch(err){
+    //         console.error(err);
+    //     }
 
+    // }
+    const logout = async () => {
+    try {
+        const { data } = await api.post("/api/auth/logout");
+
+        setUser(null);
+        setIsLoggedIn(false);
+
+        toast.success(data.message || "Logged out successfully!");
+
+    } catch (err) {
+        setUser(null);
+        setIsLoggedIn(false);
+        console.error(err);
     }
+    };
     const fetchUser = async ()=>{
 
         try{
