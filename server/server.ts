@@ -23,7 +23,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:3000', 'https://thumbnail-client.vercel.app'],
+    origin: ['http://localhost:5173', 'http://localhost:3000', 'https://thumbnail-client.vercel.app','https://thumblify-kohl.vercel.app'],
     credentials: true
 }))
 
