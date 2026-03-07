@@ -4,7 +4,8 @@ import { GenerateContentConfig, HarmCategory, HarmBlockThreshold } from "@google
 import ai from "../configs/ai.js";
 import path from "path";
 import fs from "fs";
-import {v2 as cloudinary} from "cloudinary";
+// import {v2 as cloudinary} from "cloudinary";
+import cloudinary from "../configs/cloudinary.js";
 
 
 const stylePrompts = {
