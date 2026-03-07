@@ -23,7 +23,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:3000', 'https://thumblify-blue-eight.vercel.app/'],
+    origin: ['http://localhost:5173', 'http://localhost:3000', 'https://thumblify-blue-eight.vercel.app'],
     credentials: true
 }))
 
@@ -37,7 +37,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly : true,
-      secure: false,
+      secure: process.env.NODE_ENV === 'production',
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
       path : '/'
     }, // cookie valid for 7 days
