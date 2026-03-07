@@ -31,21 +31,38 @@ app.use(express.json());
 
 app.set('trust proxy', 1);
 
+// app.use(session({
+//     secret: process.env.SESSION_SECRET as string,
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {maxAge: 7 * 24 * 60 * 60 * 1000,
+//       httpOnly : true,
+//       secure: process.env.NODE_ENV === 'production',
+//       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+//       path : '/'
+//     }, // cookie valid for 7 days
+//     store : MongoStore.create({
+//         mongoUrl: process.env.MONGODB_URI as string,
+//         collectionName: 'sessions'
+//     })
+// }))
+
 app.use(session({
-    secret: process.env.SESSION_SECRET as string,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {maxAge: 7 * 24 * 60 * 60 * 1000,
-      httpOnly : true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-      path : '/'
-    }, // cookie valid for 7 days
-    store : MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI as string,
-        collectionName: 'sessions'
-    })
-}))
+  secret: process.env.SESSION_SECRET as string,
+  resave: false,
+  saveUninitialized: false,
+  proxy: true,
+  cookie: {
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    secure: true,
+    sameSite: "none"
+  },
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI as string,
+    collectionName: "sessions"
+  })
+}));
 
 
 
