@@ -4,12 +4,11 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  
   "scripts": {
-  "dev": "nodemon --exec tsx server.ts",
-  "start": "node --loader tsx server.ts",
-  "build": "tsc"
-},
+    "dev": "nodemon --exec tsx server.ts",
+    "start": "node --loader tsx server.ts",
+    "build": "tsc"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
